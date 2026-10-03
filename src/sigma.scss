@@ -1,17 +1,85 @@
-// 1. Include functions first (so you can use them below)
-@import "../node_modules/bootstrap/scss/functions";
+// =================================================================ate
+// 1. FUNCTIONS
+// =================================================================
+// Must be imported first so you can use color and math manipulation functions
+@import "bootstrap/scss/functions";
 
-// 2. Your variable overrides — must come BEFORE Bootstrap's variables file
-//@import "variables";
+// =================================================================
+// 2. VARIABLE OVERRIDES
+// =================================================================
+// Override default global variables here (without !default)
+$primary: #0d6efd;
+$secondary: #6c757d;
+$prefix: "bs-"; // Change CSS variable prefix if needed
 
-// 3. Bootstrap's own variables (fills in anything you didn't override)
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
+// =================================================================
+// 3. MAP OVERRIDES
+// =================================================================
+// Modify existing maps (like $theme-colors) using map-merge
+$theme-colors: map-merge((
+  "primary": $primary,
+  "secondary": $secondary,
+  "custom-color": #e83e8c
+), $theme-colors);
 
-// 4. Maps, mixins, root
-@import "../node_modules/bootstrap/scss/maps";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
+// =================================================================
+// 4. BOOTSTRAP CORE & REQUIRED FILES
+// =================================================================
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark"; // Optional: for dark mode support
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
 
-// 5. Full Bootstrap (or swap for individual components to trim file size)
-@import "../node_modules/bootstrap/scss/bootstrap";
+// =================================================================
+// 5. OPTIONAL UTILITIES & REBOOT
+// =================================================================
+@import "bootstrap/scss/reboot"; // Normalization and HTML element styles
+@import "bootstrap/scss/type";   // Typography
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";     // Flexbox grid system
+
+// =================================================================
+// 6. INDIVIDUAL COMPONENTS
+// =================================================================
+// Comment out or remove any components you do not need in your project
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdowns";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+
+// =================================================================
+// 7. UTILITIES & HELPERS
+// =================================================================
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api"; // Generates utility classes
+
+// =================================================================
+// 8. YOUR CUSTOM STYLES
+// =================================================================
+// Add custom styles, components, or overrides below this line
+body {
+  background-color: #f8f9fa;
+}
