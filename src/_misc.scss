@@ -1,0 +1,28 @@
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -.01em;
+  }
+
+  :focus-visible {
+      outline: 2px solid #03A2E9;
+      outline-offset: 3px;
+  }
+
+  @media (min-width: 992px) {
+      #sidebar {
+          width: 16rem;
+      }
+  }
+
+  /* static sidebar width at lg+ */
+  @media (prefers-reduced-motion: reduce) {
+      * {
+          transition: none !important;
+          animation: none !important;
+      }
+  }

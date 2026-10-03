@@ -1,0 +1,20 @@
+  .btn {
+      font-size: .92rem;
+      border-radius: 8px;
+  }
+
+  .btn-warning {
+      --bs-btn-color: #EFEFE4;
+      --bs-btn-bg: #03A2E9;
+      --bs-btn-border-color: #03A2E9;
+      --bs-btn-hover-color: #EFEFE4;
+      --bs-btn-hover-bg: #2CB3ED;
+      --bs-btn-hover-border-color: #2CB3ED;
+      --bs-btn-active-color: #EFEFE4;
+      --bs-btn-active-bg: #038CC7;
+      --bs-btn-active-border-color: #038CC7;
+      --bs-btn-disabled-bg: #03A2E9;
+      --bs-btn-disabled-border-color: #03A2E9;
+      --bs-btn-focus-shadow-rgb: 3, 162, 233;
+      font-weight: 600;
+  }

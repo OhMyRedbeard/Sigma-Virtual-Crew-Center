@@ -6,39 +6,49 @@
 // =================================================================
 // 2. VARIABLE OVERRIDES
 // =================================================================
-$primary: #0d6efd;
-$secondary: #6c757d;
+$dark: #484A67;
+$warning: #03A2E9;
+$success: #3fb68b;
+$danger: #e2665a;
+$secondary: #8D96AC;
 
 // =================================================================
 // 3. CORE CONFIGURATION IMPORTS
 // =================================================================
 @import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/variables-dark"; 
-@import "~bootstrap/scss/maps";       
+@import "~bootstrap/scss/variables-dark";
+@import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
 
-// !!! FIX: You must import the utilities definitions map here !!!
-@import "~bootstrap/scss/utilities"; // <--- ADDED THIS LINE
+// Initialize the utilities map container so the compiler can populate it
+$utilities: (
+    ) !default;
+@import "~bootstrap/scss/utilities";
 
 // =================================================================
-// 4. MAP OVERRIDES
+// 4. MAP OVERRIDES & DEPENDENCY UPDATES
 // =================================================================
-$theme-colors: map-merge((
-  "primary": $primary,
-  "secondary": $secondary,
-  "custom-brand": #e83e8c
-), $theme-colors);
+$theme-colors: map-merge(("dark": $dark,
+            "warning": $warning,
+            "success": $success,
+            "danger": $danger,
+            "secondary": $secondary), $theme-colors
+);
 
+// Re-loop the RGB dependencies so classes like .text-dark use your updated color
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 
 // =================================================================
 // 5. REQUIRED BASE LAYOUT & STYLES
 // =================================================================
 @import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot"; 
-@import "~bootstrap/scss/type";   
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
 @import "~bootstrap/scss/containers";
-@import "~bootstrap/scss/grid";     
+@import "~bootstrap/scss/grid";
 
 // =================================================================
 // 6. CHOOSE YOUR INDIVIDUAL COMPONENTS
@@ -46,9 +56,25 @@ $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/card";
+
+// !!! FIX: Add these layout-critical components for top bars & menus !!!
+@import "~bootstrap/scss/nav"; // Base flex alignment models for navigation groups
+@import "~bootstrap/scss/navbar"; // Handles brand alignment, row-wrapping, and items mapping
+@import "~bootstrap/scss/dropdown"; // Structural positioning classes for user profile dropdown
+
 
 // =================================================================
-// 7. UTILITIES API 
+// 7. UTILITIES API (Generates .bg-*, .p-*, .m-*, .rounded, etc.)
 // =================================================================
 @import "~bootstrap/scss/helpers";
-@import "~bootstrap/scss/utilities/api"; // This now works because $utilities is defined!
+@import "~bootstrap/scss/utilities/api";
+
+// =================================================================
+// 8. YOUR CUSTOM STYLES
+// =================================================================
+@import "./root";
+@import "./misc";
+@import "./buttons";
+@import "./forms";
+@import "./pagination";
