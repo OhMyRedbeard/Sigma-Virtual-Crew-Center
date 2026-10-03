@@ -78,3 +78,4 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 @import "./buttons";
 @import "./forms";
 @import "./pagination";
+@import "./sidebar";

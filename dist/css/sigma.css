@@ -9658,4 +9658,8 @@ h6,
   --bs-pagination-active-color: #EFEFE4;
   --bs-pagination-focus-box-shadow: 0 0 0 .25rem rgba(3, 162, 233, .25);
   --bs-pagination-border-color: #DBDBCE;
+}
+
+.sidebar-title {
+  color: var(--bs-body-bg) !important;
 }/*# sourceMappingURL=sigma.css.map */
