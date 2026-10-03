@@ -1,0 +1,17 @@
+// 1. Include functions first (so you can use them below)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Your variable overrides — must come BEFORE Bootstrap's variables file
+//@import "variables";
+
+// 3. Bootstrap's own variables (fills in anything you didn't override)
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Maps, mixins, root
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// 5. Full Bootstrap (or swap for individual components to trim file size)
+@import "../node_modules/bootstrap/scss/bootstrap";
