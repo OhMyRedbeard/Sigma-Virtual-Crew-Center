@@ -1,85 +1,54 @@
-// =================================================================ate
-// 1. FUNCTIONS
 // =================================================================
-// Must be imported first so you can use color and math manipulation functions
-@import "bootstrap/scss/functions";
+// 1. FUNCTIONS FIRST
+// =================================================================
+@import "~bootstrap/scss/functions";
 
 // =================================================================
 // 2. VARIABLE OVERRIDES
 // =================================================================
-// Override default global variables here (without !default)
 $primary: #0d6efd;
 $secondary: #6c757d;
-$prefix: "bs-"; // Change CSS variable prefix if needed
 
 // =================================================================
-// 3. MAP OVERRIDES
+// 3. CORE CONFIGURATION IMPORTS
 // =================================================================
-// Modify existing maps (like $theme-colors) using map-merge
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark"; 
+@import "~bootstrap/scss/maps";       
+@import "~bootstrap/scss/mixins";
+
+// !!! FIX: You must import the utilities definitions map here !!!
+@import "~bootstrap/scss/utilities"; // <--- ADDED THIS LINE
+
+// =================================================================
+// 4. MAP OVERRIDES
+// =================================================================
 $theme-colors: map-merge((
   "primary": $primary,
   "secondary": $secondary,
-  "custom-color": #e83e8c
+  "custom-brand": #e83e8c
 ), $theme-colors);
 
-// =================================================================
-// 4. BOOTSTRAP CORE & REQUIRED FILES
-// =================================================================
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark"; // Optional: for dark mode support
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
 // =================================================================
-// 5. OPTIONAL UTILITIES & REBOOT
+// 5. REQUIRED BASE LAYOUT & STYLES
 // =================================================================
-@import "bootstrap/scss/reboot"; // Normalization and HTML element styles
-@import "bootstrap/scss/type";   // Typography
-@import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";     // Flexbox grid system
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot"; 
+@import "~bootstrap/scss/type";   
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";     
 
 // =================================================================
-// 6. INDIVIDUAL COMPONENTS
+// 6. CHOOSE YOUR INDIVIDUAL COMPONENTS
 // =================================================================
-// Comment out or remove any components you do not need in your project
-@import "bootstrap/scss/tables";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/transitions";
-@import "bootstrap/scss/dropdowns";
-@import "bootstrap/scss/button-group";
-@import "bootstrap/scss/nav";
-@import "bootstrap/scss/navbar";
-@import "bootstrap/scss/card";
-@import "bootstrap/scss/accordion";
-@import "bootstrap/scss/breadcrumb";
-@import "bootstrap/scss/pagination";
-@import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/progress";
-@import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
-@import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal";
-@import "bootstrap/scss/tooltip";
-@import "bootstrap/scss/popover";
-@import "bootstrap/scss/carousel";
-@import "bootstrap/scss/spinners";
-@import "bootstrap/scss/offcanvas";
-@import "bootstrap/scss/placeholders";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/tables";
 
 // =================================================================
-// 7. UTILITIES & HELPERS
+// 7. UTILITIES API 
 // =================================================================
-@import "bootstrap/scss/helpers";
-@import "bootstrap/scss/utilities/api"; // Generates utility classes
-
-// =================================================================
-// 8. YOUR CUSTOM STYLES
-// =================================================================
-// Add custom styles, components, or overrides below this line
-body {
-  background-color: #f8f9fa;
-}
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api"; // This now works because $utilities is defined!
