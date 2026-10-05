@@ -62,7 +62,7 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 @import "~bootstrap/scss/nav"; // Base flex alignment models for navigation groups
 @import "~bootstrap/scss/navbar"; // Handles brand alignment, row-wrapping, and items mapping
 @import "~bootstrap/scss/dropdown"; // Structural positioning classes for user profile dropdown
-
+@import "~bootstrap/scss/pagination"; // <--- ADD THIS
 
 // =================================================================
 // 7. UTILITIES API (Generates .bg-*, .p-*, .m-*, .rounded, etc.)
