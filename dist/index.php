@@ -23,7 +23,7 @@
         <div class="d-flex align-items-center gap-2 px-3 py-3 border-bottom border-secondary-subtle">
           <img src="./img/sigma-logo.png" alt="" style="max-height:36px">
           <div class="lh-sm" id="sidebarLabel">
-            <div class="sidebar-title fw-bold font-monospace">SIGMA</div>
+            <div class="fw-bold font-monospace" style="color: var(--bs-sigma-white);">SIGMA</div>
             <div class="small text-secondary">Crew Center</div>
           </div>
           <button type="button" class="btn-close ms-auto d-lg-none" data-bs-dismiss="offcanvas"

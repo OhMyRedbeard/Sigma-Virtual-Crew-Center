@@ -5,3 +5,12 @@ $body-color: #2C2D3D;
 $border-color: #DBDBCE;
 $border-radius: .6rem;
 $border-radius-lg: .85rem;
+
+// Cards are white on the beige page. Bootstrap 5.3 paints tables, list items and
+// accordions with the *page* background by default, which shows up as beige
+// patches inside white cards. Transparent lets them take whatever they sit on:
+// white inside a card, the page colour outside one.
+$card-bg: #fff;
+$table-bg: transparent;
+$list-group-bg: transparent;
+$accordion-bg: transparent;

@@ -11,7 +11,9 @@ $warning: #03A2E9;
 $success: #3fb68b;
 $danger: #e2665a;
 $secondary: #8D96AC;
+$sigma-white: #efefe4;
 
+@import "./root";
 // =================================================================
 // 3. CORE CONFIGURATION IMPORTS
 // =================================================================
@@ -32,7 +34,8 @@ $theme-colors: map-merge(("dark": $dark,
             "warning": $warning,
             "success": $success,
             "danger": $danger,
-            "secondary": $secondary), $theme-colors
+            "secondary": $secondary,
+            "sigma-white": $sigma-white), $theme-colors
 );
 
 // Re-loop the RGB dependencies so classes like .text-dark use your updated color
@@ -47,22 +50,43 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
 
 // =================================================================
-// 6. CHOOSE YOUR INDIVIDUAL COMPONENTS
+// 6. COMPONENTS
 // =================================================================
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/forms";
+// The full standard Bootstrap 5.3 component set, in Bootstrap's own order.
+// Previously only buttons/forms/tables/card/nav/navbar/dropdown/pagination/
+// popover/accordion were imported, so .alert, .btn-close, .modal, .list-group,
+// .badge, .fade/.collapse (transitions), .img-fluid, etc. had no styles at all.
+// Comment out any component you are certain you never use.
 @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions"; // .fade, .collapse -- needed by modal, alert, accordion, navbar toggler
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/card";
-
-// !!! FIX: Add these layout-critical components for top bars & menus !!!
-@import "~bootstrap/scss/nav"; // Base flex alignment models for navigation groups
-@import "~bootstrap/scss/navbar"; // Handles brand alignment, row-wrapping, and items mapping
-@import "~bootstrap/scss/dropdown"; // Structural positioning classes for user profile dropdown
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
 @import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close"; // .btn-close (alert dismiss, modal header)
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
 
 // =================================================================
 // 7. UTILITIES API (Generates .bg-*, .p-*, .m-*, .rounded, etc.)
@@ -73,7 +97,6 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 // =================================================================
 // 8. YOUR CUSTOM STYLES
 // =================================================================
-@import "./root";
 @import "./misc";
 @import "./buttons";
 @import "./forms";
